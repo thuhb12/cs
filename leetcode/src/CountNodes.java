@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /*
 222. Count Complete Tree Nodes
  */
@@ -10,7 +12,11 @@ public class CountNodes {
         TreeNode one = new TreeNode(1);
         TreeNode two = new TreeNode(2);
         one.left = two;
-        System.out.println(countNodes.countNodes(one));
+        HashMap<TreeNode, Boolean> map = new HashMap<>();
+        map.put(one, true);
+        map.put(two, false);
+        System.out.println(map.get(one));
+//        System.out.println(countNodes.countNodes(one));
     }
     public int countNodes(TreeNode root) {
         int l = level(root);
