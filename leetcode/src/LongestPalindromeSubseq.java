@@ -10,32 +10,30 @@ public class LongestPalindromeSubseq {
     }
 
     public int longestPalindromeSubseq(String s) {
-//        int[][] cache = new int[s.length()][s.length()];
-//        for (int i = 0; i < s.length(); i++) {
-//            cache[i][i] = 1;
-//            for (int j = i + 1; j < ; left++) {
-//                if (s.charAt(left) == s.charAt(i)) {
-//                    int plus = 2;
-//                    if (left == i) {
-//                        plus = 1;
-//                    }
-//                    cache[i] = getInterval(cache, left+1, i) + plus;
-//                    break;
-//                }
-//            }
-//        }
-//        return getInterval(cache, 0, s.length()-1);
-        return 0;
+        int[][] cache = new int[s.length()][s.length()];
+        return getInterval(s, cache, 0, s.length()-1);
     }
 
-    private int getInterval(int[] cache, int left, int right) {
+    private int getInterval(String s, int[][] cache, int left, int right) {
         if (left > right) {
             return 0;
         }
-        int m = 0;
-        for (int i = left; i <= right; i++) {
-            m = Math.max(m, cache[i]);
+        if (left == right) {
+            cache[left][right] = 1;
+            return 1;
         }
+        if (cache[left][right] != 0) {
+            return cache[left][right];
+        }
+        int m = 0;
+        if (s.charAt(left) == s.charAt(right)) {
+            int inner = getInterval(s, cache, left + 1, right - 1) + 2;
+            m = Math.max(m, inner);
+        }
+        int l = getInterval(s, cache, left, right-1);
+        int r = getInterval(s, cache, left+1, right);
+        m = Math.max(m, Math.max(l, r));
+        cache[left][right] = m;
         return m;
     }
 }
