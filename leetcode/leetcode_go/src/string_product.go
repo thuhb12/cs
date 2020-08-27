@@ -1,4 +1,4 @@
-package src
+package main
 
 func multiply(num1 string, num2 string) string {
 	//p := 1

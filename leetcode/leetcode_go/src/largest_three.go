@@ -1,7 +1,7 @@
 /*
 1363. Largest Multiple of Three
  */
-package src
+package main
 
 import (
 	"sort"
