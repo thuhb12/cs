@@ -1,6 +1,6 @@
 package com.github.hb.service;
 
-import com.github.hb.AutoWired;
+import com.github.hb.annotation.AutoWired;
 import com.github.hb.lol.Lol;
 
 public class FaceService {

@@ -1,6 +1,6 @@
 package com.github.hb.container;
 
-import com.github.hb.AutoWired;
+import com.github.hb.annotation.AutoWired;
 import com.github.hb.utils.ReflectUtil;
 import java.lang.reflect.Field;
 import java.util.HashSet;
