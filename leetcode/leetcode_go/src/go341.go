@@ -39,7 +39,7 @@ type NestedIterator struct {
 	nums []int
 }
 
-func Constructor(nestedList []*NestedInteger) *NestedIterator {
+func Constructor_(nestedList []*NestedInteger) *NestedIterator {
 	var nums []int
 	flat(nestedList, &nums)
 	return &NestedIterator{0, nums}
